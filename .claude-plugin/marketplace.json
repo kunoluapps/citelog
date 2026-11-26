@@ -1,0 +1,14 @@
+{
+  "name": "citelog",
+  "owner": {
+    "name": "Kunolu",
+    "url": "https://getmorningdesk.com"
+  },
+  "plugins": [
+    {
+      "name": "citelog",
+      "source": "./plugin",
+      "description": "AI search readiness: can ChatGPT, Claude, Perplexity and Gemini crawl, read and cite your site?"
+    }
+  ]
+}

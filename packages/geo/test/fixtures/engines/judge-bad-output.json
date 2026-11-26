@@ -1,0 +1,10 @@
+{
+  "_fixture": "synthetic, doc-shaped (https://platform.claude.com/docs/en/api/messages): judge reply that isn't the verdict JSON",
+  "id": "msg_fixture_judge_02",
+  "type": "message",
+  "role": "assistant",
+  "model": "claude-haiku-5-5",
+  "content": [ { "type": "text", "text": "Overall the answer is fairly positive about the brand." } ],
+  "stop_reason": "end_turn",
+  "usage": { "input_tokens": 1150, "output_tokens": 12 }
+}

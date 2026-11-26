@@ -1,0 +1,25 @@
+{
+  "_fixture": "synthetic, doc-shaped (REVIEW-citelog-apis.md 1d, https://aistudio.google.com/docs/google-search?generate-content=true)",
+  "candidates": [
+    {
+      "content": { "role": "model", "parts": [{ "text": "GeoAudit is a paid option. " }, { "text": "Citelog is an open-source checker." }] },
+      "finishReason": "STOP",
+      "groundingMetadata": {
+        "webSearchQueries": ["open source AI search readiness checker"],
+        "searchEntryPoint": { "renderedContent": "<style>.container{}</style><div class=\"container\">...</div>" },
+        "groundingChunks": [
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AQXblrFIXTURE1", "title": "competitor.io" } },
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AQXblrFIXTURE2", "title": "www.example.com" } },
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AQXblrFIXTURE3", "title": "unused.org" } },
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AQXblrFIXTURE4", "title": "Not a hostname" } }
+        ],
+        "groundingSupports": [
+          { "segment": { "startIndex": 0, "endIndex": 26, "text": "GeoAudit is a paid option." }, "groundingChunkIndices": [0, 3] },
+          { "segment": { "startIndex": 27, "endIndex": 61, "text": "Citelog is an open-source checker." }, "groundingChunkIndices": [1] }
+        ]
+      }
+    }
+  ],
+  "modelVersion": "gemini-4-hydrogen",
+  "usageMetadata": { "promptTokenCount": 20, "candidatesTokenCount": 18, "totalTokenCount": 38 }
+}

@@ -1,0 +1,41 @@
+{
+  "_fixture": "synthetic, doc-shaped (REVIEW-citelog-apis.md 1a, https://developers.openai.com/api/docs/guides/tools-web-search)",
+  "id": "resp_fixture_01",
+  "object": "response",
+  "model": "gpt-6.2-astra",
+  "status": "completed",
+  "output": [
+    {
+      "type": "web_search_call",
+      "id": "ws_fixture_01",
+      "status": "completed",
+      "action": {
+        "type": "search",
+        "query": "open source AI search readiness checker",
+        "sources": [
+          { "type": "url", "url": "https://example.com/blog/ai-readiness" },
+          { "type": "url", "url": "https://competitor.io/geo-audit" },
+          { "type": "api", "name": "oai-weather" }
+        ]
+      }
+    },
+    {
+      "id": "msg_fixture_01",
+      "type": "message",
+      "status": "completed",
+      "role": "assistant",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "Citelog checks pages for AI search readiness (example.com). GeoAudit is a paid option (competitor.io).",
+          "annotations": [
+            { "type": "url_citation", "start_index": 61, "end_index": 103, "url": "https://www.competitor.io/geo-audit?utm_source=openai", "title": "GeoAudit" },
+            { "type": "url_citation", "start_index": 0, "end_index": 60, "url": "https://docs.example.com/blog/ai-readiness?utm_source=openai#top", "title": "AI readiness checks" },
+            { "type": "url_citation", "start_index": 61, "end_index": 103, "url": "https://competitor.io/pricing?utm_source=openai", "title": "GeoAudit pricing" }
+          ]
+        }
+      ]
+    }
+  ],
+  "usage": { "input_tokens": 3000, "input_tokens_details": { "cached_tokens": 1000 }, "output_tokens": 200, "total_tokens": 3200 }
+}

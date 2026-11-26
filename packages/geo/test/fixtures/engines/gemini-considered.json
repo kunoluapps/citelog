@@ -1,0 +1,24 @@
+{
+  "_fixture": "synthetic, doc-shaped (ai-search-measures PLAN docs table, https://aistudio.google.com/docs/google-search?generate-content=true): an on-site chunk no groundingSupport references; sources known by host (chunk title) only",
+  "candidates": [
+    {
+      "content": { "role": "model", "parts": [{ "text": "A Roth IRA is funded after tax. " }, { "text": "Short lessons help beginners start." }] },
+      "finishReason": "STOP",
+      "groundingMetadata": {
+        "webSearchQueries": ["roth ira app for beginners"],
+        "groundingChunks": [
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AQXblrCONS1", "title": "nerdwallet.com" } },
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AQXblrCONS2", "title": "blog.example.com" } },
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AQXblrCONS3", "title": "example.com" } },
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AQXblrCONS4", "title": "investopedia.com" } }
+        ],
+        "groundingSupports": [
+          { "segment": { "startIndex": 0, "endIndex": 31, "text": "A Roth IRA is funded after tax." }, "groundingChunkIndices": [0] },
+          { "segment": { "startIndex": 32, "endIndex": 67, "text": "Short lessons help beginners start." }, "groundingChunkIndices": [1] }
+        ]
+      }
+    }
+  ],
+  "modelVersion": "gemini-4-hydrogen",
+  "usageMetadata": { "promptTokenCount": 30, "candidatesTokenCount": 40, "totalTokenCount": 70 }
+}

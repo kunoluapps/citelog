@@ -1,0 +1,9 @@
+node_modules/
+packages/*/dist/
+/dist/
+coverage/
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+# action/dist is committed on purpose: GitHub runs the bundled Action from the repo.

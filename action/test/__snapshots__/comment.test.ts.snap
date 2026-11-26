@@ -1,0 +1,111 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PR comment (board CActionPR) > state 1: first run 1`] = `
+"<!-- citelog:report -->
+### Citelog: AI answer readiness
+
+First Citelog run on this repo. It checked **the 4 pages this PR changes** on the preview \`bywell-git-roth.vercel.app\`. This comment updates on each push instead of posting again.
+
+**Score 82, Needs work** for these pages · 1 with failures · 2 with warnings · 1 passing
+
+| Page | Result | Top fix |
+|---|---|---|
+| /learn/roth-ira | **Fail** 64 | A short answer under the title. |
+| /learn/ira-basics | Warn 86 | Make one subheading a question. |
+| /learn/x | Warn 86 | Make one subheading a question. |
+
+<details><summary>What Citelog checks and why (10 checks)</summary>
+
+| Check | Why it matters | Weight |
+|---|---|---|
+| Page can be indexed | Page can be indexed helps engines quote the page. | 10 |
+| robots.txt allows the main AI crawlers | robots.txt allows the main AI crawlers helps engines quote the page. | 15 |
+| Canonical URL | Canonical URL helps engines quote the page. | 10 |
+| Title and meta description | Title and meta description helps engines quote the page. | 10 |
+| Short direct answer near the top | Short direct answer near the top helps engines quote the page. | 10 |
+| Question-style subheadings | Question-style subheadings helps engines quote the page. | 10 |
+| Visible "updated" date matches structured data | Visible "updated" date matches structured data helps engines quote the page. | 10 |
+| Valid JSON-LD | Valid JSON-LD helps engines quote the page. | 10 |
+| Content present without JavaScript | Content present without JavaScript helps engines quote the page. | 15 |
+| llms.txt | llms.txt helps engines quote the page. | info |
+
+</details>
+
+Prompts aren't asked in pull requests; they run on the schedule. Checked the preview \`bywell-git-roth.vercel.app\` at a81d3e2. Citelog 0.1.0, part of Morningdesk.
+
+<!-- citelog:state {"v":1,"pushes":[{"sha":"a81d3e2","score":82}],"failing":["/learn/roth-ira|direct_answer"]} -->"
+`;
+
+exports[`PR comment (board CActionPR) > state 2: all pass 1`] = `
+"<!-- citelog:report -->
+### Citelog: AI answer readiness
+
+**Pass.** All 3 changed pages pass every check. Score 95, Ready (was 93 on main).
+
+<details><summary>Pages checked (3)</summary>
+
+| Page | Score |
+|---|---|
+| /a | 95 |
+| /b | 96 |
+| /c | 94 |
+
+</details>
+
+Checked the preview \`bywell-git-roth.vercel.app\` at 4f1a2c0. Citelog 0.1.0, part of Morningdesk.
+
+<!-- citelog:state {"v":1,"pushes":[{"sha":"4f1a2c0","score":95}],"failing":[]} -->"
+`;
+
+exports[`PR comment (board CActionPR) > state 3: new failures listed first 1`] = `
+"<!-- citelog:report -->
+### Citelog: AI answer readiness
+
+**Fail. Score 68, Needs work, was 81 on main**, below your threshold of 75. This PR adds **2 new failures** on 3 changed pages.
+
+#### New failures
+
+| Page | Check | Fix |
+|---|---|---|
+| /pricing | Content present without JavaScript | Render the plan table on the server. |
+| /learn/roth-ira | Valid JSON-LD | Use an ISO date in datePublished. |
+
+<details><summary>Warnings (1)</summary>
+
+| Page | Result | Top fix |
+|---|---|---|
+| /learn/a | Warn 85 | Make one subheading a question. |
+
+</details>
+
+Run locally: \`npx citelog check ./out\`. Checked the preview \`bywell-git-roth.vercel.app\` at a81d3e2. Citelog 0.1.0, part of Morningdesk.
+
+<!-- citelog:state {"v":1,"pushes":[{"sha":"a81d3e2","score":68}],"failing":["/pricing|no_js_content","/learn/roth-ira|json_ld"]} -->"
+`;
+
+exports[`PR comment (board CActionPR) > state 5: updated after a push 1`] = `
+"<!-- citelog:report -->
+### Citelog: AI answer readiness
+
+**Updated for 9f2c1e4** (push 3 of this PR). **Score 79, Needs work**, was 68 on the last push. Above your threshold of 75.
+
+#### Fixed since the last push (1)
+
+/pricing: content present without JavaScript. Pass now.
+
+#### Still failing (1)
+
+/learn/roth-ira: valid JSON-LD. Use an ISO date in datePublished.
+
+<details><summary>History: push 1 score 81, push 2 score 68, push 3 score 79</summary>
+
+- Push 1 (1111111): 81
+- Push 2 (2222222): 68
+- Push 3 (9f2c1e4): 79
+
+</details>
+
+Checked the preview \`bywell-git-roth.vercel.app\` at 9f2c1e4. Citelog 0.1.0, part of Morningdesk.
+
+<!-- citelog:state {"v":1,"pushes":[{"sha":"1111111","score":81},{"sha":"2222222","score":68},{"sha":"9f2c1e4","score":79}],"failing":["/learn/roth-ira|json_ld"]} -->"
+`;

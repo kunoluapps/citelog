@@ -1,0 +1,19 @@
+{
+  "_fixture": "synthetic, doc-shaped: no annotations, cited via [n] markers",
+  "id": "resp_fixture_pplx_02",
+  "object": "response",
+  "status": "completed",
+  "model": "perplexity/sonar",
+  "output": [
+    { "type": "search_results",
+      "queries": ["roth ira for beginners"],
+      "results": [
+        { "id": 1, "url": "https://www.nerdwallet.com/roth-ira", "title": "Roth IRA", "snippet": "..." },
+        { "id": 2, "url": "https://investopedia.com/roth", "title": "Roth", "snippet": "..." },
+        { "id": 3, "url": "https://example.com/learn/roth-ira", "title": "Learn", "snippet": "..." }
+      ] },
+    { "type": "message", "id": "msg_fixture_pplx_02", "status": "completed", "role": "assistant",
+      "content": [ { "type": "output_text", "text": "A Roth IRA is funded after tax [2]. Start small [1][2]." } ] }
+  ],
+  "usage": { "input_tokens": 1000, "output_tokens": 100, "total_tokens": 1100 }
+}

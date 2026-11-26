@@ -1,0 +1,27 @@
+{
+  "_fixture": "synthetic, doc-shaped (REVIEW-citelog-apis.md 1c, https://docs.perplexity.ai/api-reference/agent-post.md)",
+  "id": "resp_fixture_pplx_01",
+  "object": "response",
+  "created_at": 1795000000,
+  "status": "completed",
+  "model": "perplexity/sonar",
+  "output": [
+    { "type": "search_results",
+      "queries": ["open source AI search readiness checker"],
+      "results": [
+        { "id": 1, "url": "https://competitor.io/geo-audit", "title": "GeoAudit", "snippet": "Audit your site for AI answers...", "date": "2026-10-02", "source": "web" },
+        { "id": 2, "url": "https://example.com/blog/ai-readiness", "title": "AI readiness checks", "snippet": "Ten checks...", "source": "web" }
+      ] },
+    { "type": "message", "id": "msg_fixture_pplx_01", "status": "completed", "role": "assistant",
+      "content": [
+        { "type": "output_text",
+          "text": "GeoAudit is a paid option [1]. Citelog is open source [2].",
+          "annotations": [
+            { "type": "url_citation", "url": "https://competitor.io/geo-audit", "title": "GeoAudit", "start_index": 0, "end_index": 29 },
+            { "type": "url_citation", "url": "https://example.com/blog/ai-readiness", "title": "AI readiness checks", "start_index": 30, "end_index": 59 }
+          ] }
+      ] }
+  ],
+  "usage": { "input_tokens": 900, "output_tokens": 60, "total_tokens": 960,
+             "cost": { "currency": "USD", "input_cost": 0.0002, "output_cost": 0.0002, "tool_calls_cost": 0.0025, "total_cost": 0.0029 } }
+}

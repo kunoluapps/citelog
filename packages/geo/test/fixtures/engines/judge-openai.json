@@ -1,0 +1,12 @@
+{
+  "_fixture": "synthetic, doc-shaped (https://developers.openai.com/api/docs/guides/structured-outputs): perception judge reply with a json_schema text format",
+  "id": "resp_fixture_judge_01",
+  "object": "response",
+  "model": "gpt-6-luna",
+  "status": "completed",
+  "output": [
+    { "id": "msg_fixture_judge_01", "type": "message", "status": "completed", "role": "assistant",
+      "content": [ { "type": "output_text", "text": "{\"value\":\"neutral\",\"reason\":\"Lists Example's free plan without judging it.\"}", "annotations": [] } ] }
+  ],
+  "usage": { "input_tokens": 1100, "input_tokens_details": { "cached_tokens": 0 }, "output_tokens": 30, "total_tokens": 1130 }
+}

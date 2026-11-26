@@ -1,0 +1,117 @@
+# Release: push a tag like v0.1.1 (after bumping the version everywhere; `pnpm check` verifies they agree).
+#   1. verify   - the same checks as CI
+#   2. npm      - publish `citelog` with npm trusted publishing (OIDC; no npm token stored) and provenance
+#   3. mcp      - publish server.json to the official MCP Registry (GitHub OIDC, namespace io.github.kunoluapps)
+#   4. release  - a DRAFT GitHub release with notes and the .mcpb file, and the major tag v0 moved to this commit.
+#                 A maintainer opens the draft, ticks "Publish this Action to the GitHub Marketplace" and publishes it.
+name: Release
+
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm verify
+      - id: version
+        name: The tag matches every version in the repo
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          node scripts/check-public.mjs --version "$tag"
+          echo "version=$tag" >> "$GITHUB_OUTPUT"
+
+  npm:
+    needs: verify
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write   # npm trusted publishing + provenance
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter citelog build
+      - name: npm 11.5.1 or newer (trusted publishing)
+        run: npm install -g npm@^11.5.1
+      - name: Pack (pnpm resolves workspace versions) and publish
+        run: |
+          v="${{ needs.verify.outputs.version }}"
+          if npm view "citelog@$v" version >/dev/null 2>&1; then
+            echo "citelog@$v is already on npm (first release published by hand); nothing to publish."
+            exit 0
+          fi
+          mkdir -p "$RUNNER_TEMP/pkg"
+          (cd packages/cli && pnpm pack --pack-destination "$RUNNER_TEMP/pkg")
+          npm publish "$RUNNER_TEMP/pkg/citelog-$v.tgz" --access public
+
+  mcp-registry:
+    needs: [verify, npm]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write   # GitHub OIDC login to the MCP Registry
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: Install mcp-publisher
+        run: |
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
+      - name: Wait until npm serves the new version
+        run: |
+          for i in $(seq 1 30); do
+            npm view "citelog@${{ needs.verify.outputs.version }}" version && exit 0
+            sleep 10
+          done
+          echo "citelog@${{ needs.verify.outputs.version }} isn't on npm yet" && exit 1
+      - run: ./mcp-publisher login github-oidc
+      - run: ./mcp-publisher publish
+
+  release:
+    needs: [verify, npm]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # draft release + moving the v0 tag
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter citelog build
+      - run: node scripts/build-mcpb.mjs
+      - name: Draft release with the .mcpb
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" --draft --verify-tag --generate-notes --title "Citelog $GITHUB_REF_NAME" dist/citelog-${{ needs.verify.outputs.version }}.mcpb
+      - name: Move the major tag (v0) to this release
+        run: |
+          major="${GITHUB_REF_NAME%%.*}"
+          git tag -f "$major" "$GITHUB_SHA"
+          git push -f origin "refs/tags/$major"

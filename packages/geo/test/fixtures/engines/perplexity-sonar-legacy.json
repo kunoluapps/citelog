@@ -1,0 +1,13 @@
+{
+  "_fixture": "synthetic, doc-shaped: old Sonar chat completions shape (https://docs.perplexity.ai/api-reference/chat-completions-post)",
+  "id": "fixture-sonar-01",
+  "model": "sonar",
+  "object": "chat.completion",
+  "choices": [ { "index": 0, "finish_reason": "stop", "message": { "role": "assistant", "content": "ETFs trade like stocks [1]. See also [2]." } } ],
+  "citations": ["https://fidelity.com/etf", "https://blog.example.com/etf-vs-index-fund"],
+  "search_results": [
+    { "title": "ETFs", "url": "https://fidelity.com/etf", "date": "2026-09-01", "snippet": "..." },
+    { "title": "ETF vs index fund", "url": "https://blog.example.com/etf-vs-index-fund", "snippet": "..." }
+  ],
+  "usage": { "prompt_tokens": 50, "completion_tokens": 40, "total_tokens": 90 }
+}

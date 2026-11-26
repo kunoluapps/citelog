@@ -1,0 +1,14 @@
+{
+  "_fixture": "synthetic, doc-shaped: in-body web search error (HTTP 200)",
+  "id": "msg_fixture_02",
+  "type": "message",
+  "role": "assistant",
+  "model": "claude-haiku-5-5",
+  "content": [
+    { "type": "server_tool_use", "id": "srvtoolu_fixture_02", "name": "web_search", "input": { "query": "ai readiness" } },
+    { "type": "web_search_tool_result", "tool_use_id": "srvtoolu_fixture_02", "content": { "type": "web_search_tool_result_error", "error_code": "too_many_requests" } },
+    { "type": "text", "text": "I couldn't search right now." }
+  ],
+  "stop_reason": "end_turn",
+  "usage": { "input_tokens": 400, "output_tokens": 20, "server_tool_use": { "web_search_requests": 0 } }
+}

@@ -1,0 +1,21 @@
+{
+  "_fixture": "synthetic, doc-shaped (https://aistudio.google.com/docs/google-search?generate-content=true): every groundingChunk is referenced, so retrieved can't be told from cited",
+  "candidates": [
+    {
+      "content": { "role": "model", "parts": [{ "text": "A Roth IRA is funded after tax." }] },
+      "finishReason": "STOP",
+      "groundingMetadata": {
+        "webSearchQueries": ["roth ira"],
+        "groundingChunks": [
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AQXblrALL1", "title": "example.com" } },
+          { "web": { "uri": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AQXblrALL2", "title": "nerdwallet.com" } }
+        ],
+        "groundingSupports": [
+          { "segment": { "startIndex": 0, "endIndex": 31, "text": "A Roth IRA is funded after tax." }, "groundingChunkIndices": [0, 1] }
+        ]
+      }
+    }
+  ],
+  "modelVersion": "gemini-4-hydrogen",
+  "usageMetadata": { "promptTokenCount": 25, "candidatesTokenCount": 12, "totalTokenCount": 37 }
+}

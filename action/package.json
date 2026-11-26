@@ -1,0 +1,17 @@
+{
+  "name": "citelog-action",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Citelog GitHub Action: AI-answer readiness on every pull request.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "@morningdesk/core": "workspace:^",
+    "@morningdesk/geo": "workspace:^",
+    "esbuild": "^0.28.2"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "_fixture": "synthetic, doc-shaped (ai-search-measures PLAN docs table, https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool): names the brand without linking it; an on-site result is retrieved but not cited",
+  "id": "msg_fixture_04",
+  "type": "message",
+  "role": "assistant",
+  "model": "claude-haiku-5-5",
+  "content": [
+    { "type": "server_tool_use", "id": "srvtoolu_fixture_04", "name": "web_search", "input": { "query": "roth ira app for beginners" } },
+    { "type": "web_search_tool_result", "tool_use_id": "srvtoolu_fixture_04",
+      "content": [
+        { "type": "web_search_result", "url": "https://example.com/learn/roth-ira", "title": "Roth IRA basics", "encrypted_content": "EqgfCioIARgD...", "page_age": "October 30, 2026" },
+        { "type": "web_search_result", "url": "https://www.nerdwallet.com/roth-ira", "title": "Roth IRA", "encrypted_content": "EqgfCioIARgE...", "page_age": null },
+        { "type": "web_search_result", "url": "https://investopedia.com/roth", "title": "Roth", "encrypted_content": "EqgfCioIARgF...", "page_age": null }
+      ] },
+    { "type": "text", "text": "Example is great for beginners who want short lessons. " },
+    { "type": "text", "text": "A Roth IRA is funded with after-tax money.",
+      "citations": [
+        { "type": "web_search_result_location", "url": "https://www.nerdwallet.com/roth-ira", "title": "Roth IRA", "encrypted_index": "Eo8BCioIAhgD...", "cited_text": "Contributions are made with after-tax dollars..." }
+      ] }
+  ],
+  "stop_reason": "end_turn",
+  "usage": { "input_tokens": 4800, "output_tokens": 180, "server_tool_use": { "web_search_requests": 1 } }
+}

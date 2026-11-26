@@ -1,0 +1,83 @@
+{
+  "manifest_version": "0.2",
+  "name": "citelog",
+  "display_name": "Citelog",
+  "version": "0.1.0",
+  "description": "Can ChatGPT, Claude, Perplexity and Gemini crawl, read and cite your site? AI search readiness checks.",
+  "long_description": "Citelog shows what AI crawlers see on a page, runs ten readiness checks (robots.txt for AI crawlers, content without JavaScript, a quotable answer, JSON-LD, canonical, title, question headings, updated date, llms.txt), explains each fix, reads access logs for verified AI crawler visits, and, only when you confirm, asks the engines your questions on your own API keys. No account and no telemetry: it fetches only the sites you ask about.",
+  "author": {
+    "name": "Kunolu",
+    "url": "https://getmorningdesk.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kunoluapps/citelog"
+  },
+  "homepage": "https://getmorningdesk.com/citelog/",
+  "icon": "icon.png",
+  "documentation": "https://github.com/kunoluapps/citelog#mcp-server",
+  "support": "https://github.com/kunoluapps/citelog/issues",
+  "license": "MIT",
+  "keywords": ["geo", "aeo", "ai-search", "seo", "robots.txt", "llms.txt", "ai-crawlers", "gptbot", "json-ld"],
+  "server": {
+    "type": "node",
+    "entry_point": "server/citelog.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/citelog.mjs", "mcp"],
+      "env": {
+        "OPENAI_API_KEY": "${user_config.openai_api_key}",
+        "ANTHROPIC_API_KEY": "${user_config.anthropic_api_key}",
+        "PERPLEXITY_API_KEY": "${user_config.perplexity_api_key}",
+        "GEMINI_API_KEY": "${user_config.gemini_api_key}"
+      }
+    }
+  },
+  "tools": [
+    { "name": "ai_view", "description": "What AI crawlers see on one page, with PASS/FAIL and the fix." },
+    { "name": "check_readiness", "description": "Ten AI answer readiness checks on a URL, sitemap or build folder." },
+    { "name": "robots_ai", "description": "robots.txt against 30 AI crawlers, with a starter block." },
+    { "name": "llms_txt", "description": "Fetch /llms.txt and compare it with the llmstxt.org format." },
+    { "name": "crawler_info", "description": "The AI crawler catalog: vendor, purpose, robots.txt token, docs." },
+    { "name": "parse_logs", "description": "AI crawler visits from a local access log, verified by IP." },
+    { "name": "prompts_plan", "description": "What a prompt check would ask and cost; sends nothing." },
+    { "name": "explain_check", "description": "Why a readiness check matters and how to fix it." },
+    { "name": "run_prompts", "description": "Ask the engines your prompts on your keys (spends credit; needs confirm)." }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=22.12.0"
+    }
+  },
+  "user_config": {
+    "openai_api_key": {
+      "type": "string",
+      "title": "OpenAI API key (optional)",
+      "description": "Only for run_prompts (ChatGPT) and the perception judge. Leave empty to skip ChatGPT.",
+      "sensitive": true,
+      "required": false
+    },
+    "anthropic_api_key": {
+      "type": "string",
+      "title": "Anthropic API key (optional)",
+      "description": "Only for run_prompts (Claude) and the perception judge. Leave empty to skip Claude.",
+      "sensitive": true,
+      "required": false
+    },
+    "perplexity_api_key": {
+      "type": "string",
+      "title": "Perplexity API key (optional)",
+      "description": "Only for run_prompts (Perplexity). Leave empty to skip Perplexity.",
+      "sensitive": true,
+      "required": false
+    },
+    "gemini_api_key": {
+      "type": "string",
+      "title": "Gemini API key (optional)",
+      "description": "Only for run_prompts (Gemini). Leave empty to skip Gemini.",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}

@@ -1,0 +1,34 @@
+name: New or changed AI crawler
+description: An AI crawler Citelog doesn't know, or one whose user agent, robots.txt token or IP list changed.
+labels: [crawler]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Crawler name and vendor
+      placeholder: ExampleBot (Example AI)
+    validations:
+      required: true
+  - type: input
+    id: docs
+    attributes:
+      label: The vendor's own documentation
+      description: We only add crawlers the vendor documents. Third-party lists are fine as a pointer, not as the source.
+    validations:
+      required: true
+  - type: dropdown
+    id: purpose
+    attributes:
+      label: What it does
+      options:
+        - Search indexing for AI answers
+        - Fetches a page when a user asks (user-triggered)
+        - Model training
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: User-Agent, robots.txt token, IP range list URL
+      description: Whatever the vendor publishes, and a sample log line if you have one (remove client IPs that aren't the crawler's).

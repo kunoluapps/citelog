@@ -1,0 +1,43 @@
+name: False positive or false negative
+description: A readiness check, the "what AI crawlers see" reveal or the robots.txt check got your page wrong.
+labels: [false-positive]
+body:
+  - type: dropdown
+    id: check
+    attributes:
+      label: Which check
+      options:
+        - indexable
+        - robots_ai
+        - no_js_content
+        - direct_answer
+        - json_ld
+        - canonical
+        - title_meta
+        - question_headings
+        - updated_date
+        - llms_txt
+        - What AI crawlers see (the reveal)
+        - Log reader (logs)
+        - Prompts (cited / named)
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      description: A public URL we can check. If it's private, attach the HTML (and robots.txt) instead.
+  - type: textarea
+    id: output
+    attributes:
+      label: What Citelog said
+      description: Paste the lines from `npx citelog check <url> --verbose --no-color` (or `--json`).
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it's wrong
+      description: What the page really has, and a source if a crawler or engine documents the behaviour.
+    validations:
+      required: true

@@ -1,0 +1,61 @@
+name: Citelog AI Search Readiness
+description: AI answer readiness on every pull request. One comment with what to fix, a job summary, and a README badge.
+author: Kunolu
+branding:
+  icon: message-square
+  color: gray-dark
+inputs:
+  url:
+    description: URL to check. On a pull request, the preview deployment of this branch. On a schedule, the live site (or a sitemap URL).
+    required: false
+  path:
+    description: Folder of built HTML to check (e.g. ./dist) when there is no preview URL.
+    required: false
+  base-url:
+    description: Optional. The live site, so the PR comment can compare changed pages with the default branch ("was 81 on main").
+    required: false
+  max-pages:
+    description: Pages to read from a sitemap or folder.
+    required: false
+    default: '50'
+  fail-under:
+    description: Fail the job when the score is below this (0-100). Empty = never fail on score.
+    required: false
+  prompts:
+    description: Ask engines the prompts in citelog.config.json (runs that are not pull requests, such as a schedule; needs engine keys in env). Never runs in pull requests.
+    required: false
+    default: 'false'
+  perception:
+    description: With prompts, judge each answer that names or cites the site (positive, neutral or negative) on the OpenAI or Anthropic key in env. Costs a little per answer, so it is off by default.
+    required: false
+    default: 'false'
+  logs:
+    description: Optional access log to read for AI crawler visits on scheduled runs.
+    required: false
+  github-token:
+    description: Token for the PR comment. Needs pull-requests write.
+    required: false
+    default: ${{ github.token }}
+  badge:
+    description: Path to write the README badge SVG on scheduled and default-branch runs (e.g. .github/citelog-badge.svg). Committing it is your workflow's job.
+    required: false
+  comment:
+    description: Post (and keep editing) one PR comment.
+    required: false
+    default: 'true'
+outputs:
+  score:
+    description: The score (0-100) of the pages checked; empty when there is none.
+  band:
+    description: ready, needs_work, not_ready or no_score (scheduled runs).
+  report-json:
+    description: Path of the JSON report (scheduled runs).
+  report-md:
+    description: Path of the Markdown report (scheduled runs).
+  badge-line:
+    description: The line to show under the badge, e.g. "AI answer readiness of example.com, 41 pages, checked Nov 17, 2026".
+  comment-url:
+    description: URL of the PR comment, when one was posted or edited.
+runs:
+  using: node24
+  main: action/dist/index.js

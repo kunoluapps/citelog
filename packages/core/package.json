@@ -1,0 +1,14 @@
+{
+  "name": "@morningdesk/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Citelog's shared names, score bands, money and prompt-measure rules (a trimmed copy of Morningdesk's core).",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

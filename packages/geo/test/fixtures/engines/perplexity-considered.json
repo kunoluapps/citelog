@@ -1,0 +1,27 @@
+{
+  "_fixture": "synthetic, doc-shaped (ai-search-measures PLAN docs table, https://docs.perplexity.ai/api-reference/agent-post.md): search_results shows an on-site URL beyond the citations; one cited URL is not in search_results",
+  "id": "resp_fixture_pplx_03",
+  "object": "response",
+  "status": "completed",
+  "model": "perplexity/sonar",
+  "output": [
+    { "type": "search_results",
+      "queries": ["roth ira app for beginners"],
+      "results": [
+        { "id": 1, "url": "https://www.nerdwallet.com/roth-ira", "title": "Roth IRA", "snippet": "...", "source": "web" },
+        { "id": "r2", "url": "https://example.com/learn/roth-ira", "title": "Roth IRA basics", "snippet": "...", "source": "web" },
+        { "id": 3, "url": "https://investopedia.com/roth", "title": "Roth", "snippet": "...", "source": "web" }
+      ] },
+    { "type": "message", "id": "msg_fixture_pplx_03", "status": "completed", "role": "assistant",
+      "content": [
+        { "type": "output_text",
+          "text": "A Roth IRA is funded after tax [1]. Some apps have a free plan [2].",
+          "annotations": [
+            { "type": "url_citation", "url": "https://www.nerdwallet.com/roth-ira", "title": "Roth IRA", "start_index": 0, "end_index": 35 },
+            { "type": "url_citation", "url": "https://example.com/pricing?utm_source=perplexity", "title": "Pricing", "start_index": 36, "end_index": 68 }
+          ] }
+      ] }
+  ],
+  "usage": { "input_tokens": 950, "output_tokens": 70, "total_tokens": 1020,
+             "cost": { "currency": "USD", "input_cost": 0.0002, "output_cost": 0.0004, "tool_calls_cost": 0.0025, "total_cost": 0.0031 } }
+}

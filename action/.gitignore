@@ -1,0 +1,2 @@
+# GitHub runs the committed bundle, so dist/ is tracked here.
+!dist/

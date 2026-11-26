@@ -1,0 +1,43 @@
+{
+  "name": "citelog",
+  "version": "0.1.0",
+  "description": "Check whether ChatGPT, Claude, Perplexity and Gemini can crawl, read and cite your site: AI crawlers, robots.txt, llms.txt, JSON-LD and content that needs JavaScript. Local, no account, no telemetry.",
+  "author": {
+    "name": "Kunolu",
+    "url": "https://getmorningdesk.com"
+  },
+  "homepage": "https://getmorningdesk.com/citelog/",
+  "repository": "https://github.com/kunoluapps/citelog",
+  "license": "MIT",
+  "keywords": ["seo", "geo", "aeo", "ai-search", "robots.txt", "llms.txt", "mcp"],
+  "userConfig": {
+    "openai_api_key": {
+      "type": "string",
+      "title": "OpenAI API key (optional)",
+      "description": "Only for run_prompts (ChatGPT) and the perception judge.",
+      "sensitive": true,
+      "required": false
+    },
+    "anthropic_api_key": {
+      "type": "string",
+      "title": "Anthropic API key (optional)",
+      "description": "Only for run_prompts (Claude) and the perception judge.",
+      "sensitive": true,
+      "required": false
+    },
+    "perplexity_api_key": {
+      "type": "string",
+      "title": "Perplexity API key (optional)",
+      "description": "Only for run_prompts (Perplexity).",
+      "sensitive": true,
+      "required": false
+    },
+    "gemini_api_key": {
+      "type": "string",
+      "title": "Gemini API key (optional)",
+      "description": "Only for run_prompts (Gemini).",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}

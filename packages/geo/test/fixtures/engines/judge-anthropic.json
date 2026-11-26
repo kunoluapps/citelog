@@ -1,0 +1,10 @@
+{
+  "_fixture": "synthetic, doc-shaped (https://platform.claude.com/docs/en/api/messages): perception judge reply, no tools",
+  "id": "msg_fixture_judge_01",
+  "type": "message",
+  "role": "assistant",
+  "model": "claude-haiku-5-5",
+  "content": [ { "type": "text", "text": "{\"value\":\"positive\",\"reason\":\"Recommends Example for beginners who want short lessons.\"}" } ],
+  "stop_reason": "end_turn",
+  "usage": { "input_tokens": 1150, "output_tokens": 28 }
+}

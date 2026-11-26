@@ -1,0 +1,6 @@
+{
+  "_fixture": "synthetic, doc-shaped: the model answered without searching",
+  "candidates": [ { "content": { "role": "model", "parts": [{ "text": "Hello." }] }, "finishReason": "STOP" } ],
+  "modelVersion": "gemini-4-hydrogen",
+  "usageMetadata": { "promptTokenCount": 5, "candidatesTokenCount": 2, "totalTokenCount": 7 }
+}

@@ -1,0 +1,74 @@
+{
+  "name": "citelog",
+  "version": "0.1.0",
+  "description": "Check if ChatGPT, Claude, Perplexity and Gemini can crawl and cite your site: AI crawlers, robots.txt, llms.txt, JSON-LD, citations. CLI + GitHub Action + MCP.",
+  "keywords": [
+    "geo",
+    "aeo",
+    "generative-engine-optimization",
+    "answer-engine-optimization",
+    "ai-search",
+    "ai-seo",
+    "llm-citations",
+    "ai-crawlers",
+    "gptbot",
+    "claudebot",
+    "perplexitybot",
+    "robots.txt",
+    "llms.txt",
+    "structured-data",
+    "json-ld",
+    "seo-audit",
+    "chatgpt",
+    "perplexity",
+    "claude",
+    "gemini",
+    "mcp",
+    "mcp-server",
+    "github-action",
+    "cli"
+  ],
+  "homepage": "https://getmorningdesk.com/citelog/",
+  "bugs": {
+    "url": "https://github.com/kunoluapps/citelog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunoluapps/citelog.git",
+    "directory": "packages/cli"
+  },
+  "license": "MIT",
+  "author": "Kunolu",
+  "type": "module",
+  "bin": {
+    "citelog": "dist/citelog.mjs"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "assets"
+  ],
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "mcpName": "io.github.kunoluapps/citelog",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "@morningdesk/core": "workspace:^",
+    "@morningdesk/geo": "workspace:^",
+    "esbuild": "^0.28.2",
+    "yaml": "^2.9.1",
+    "zod": "4.6.7"
+  }
+}

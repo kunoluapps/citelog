@@ -1,0 +1,60 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.kunoluapps/citelog",
+  "title": "Citelog",
+  "description": "Can ChatGPT, Claude, Perplexity and Gemini crawl, read and cite your site? Local checks, no account.",
+  "version": "0.1.0",
+  "websiteUrl": "https://getmorningdesk.com/citelog/",
+  "repository": {
+    "url": "https://github.com/kunoluapps/citelog",
+    "source": "github",
+    "subfolder": "packages/cli"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "citelog",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
+      ],
+      "environmentVariables": [
+        {
+          "name": "OPENAI_API_KEY",
+          "description": "Optional. Only run_prompts (ChatGPT) and the perception judge use it.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "description": "Optional. Only run_prompts (Claude) and the perception judge use it.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "PERPLEXITY_API_KEY",
+          "description": "Optional. Only run_prompts (Perplexity) uses it.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "GEMINI_API_KEY",
+          "description": "Optional. Only run_prompts (Gemini) uses it. GOOGLE_API_KEY also works.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

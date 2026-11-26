@@ -1,0 +1,330 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`markdown > check report (job summary layout) 1`] = `
+"## Citelog: bywell.org
+
+**Score 72, Needs work** (was 74 last run) · 41 pages · 14 with failures · 9 with warnings · 18 passing · badge written to \`.github/citelog-badge.svg\`
+
+### Fix first
+
+| Check | Pages | Fix |
+|---|---|---|
+| Short direct answer near the top | 9 | A short answer under the title. |
+| Question-style subheadings | 5 | Make one subheading a question. |
+| robots.txt allows the main AI crawlers | 3 | robots.txt blocks ClaudeBot. "User-agent: ClaudeBot / Disallow: /" \\(line 14\\). Remove the rule, unless you mean to block it. |
+
+### Pages (41)
+
+| Page | Score | Result | Failed checks |
+|---|---|---|---|
+| /pricing | 42 | **Fail** | AI crawlers blocked; content without JavaScript; short answer; JSON-LD |
+| /learn/what-is-diversification | 58 | **Fail** | AI crawlers blocked; short answer; JSON-LD |
+| /learn/roth-ira | 64 | **Fail** | AI crawlers blocked; short answer; updated date |
+
+<details><summary>38 more pages (11 fail, 9 warn, 18 pass)</summary>
+
+| Page | Score | Result | Failed checks |
+|---|---|---|---|
+| /learn/f0 | 70 | **Fail** | short answer |
+| /learn/f1 | 70 | **Fail** | short answer |
+| /learn/f2 | 70 | **Fail** | short answer |
+| /learn/f3 | 70 | **Fail** | short answer |
+| /learn/f4 | 70 | **Fail** | short answer |
+| /learn/f5 | 70 | **Fail** | short answer |
+| /learn/g0 | 74 | **Fail** | question headings |
+| /learn/g1 | 74 | **Fail** | question headings |
+| /learn/g2 | 74 | **Fail** | question headings |
+| /learn/g3 | 74 | **Fail** | question headings |
+| /learn/g4 | 74 | **Fail** | question headings |
+| /learn/w0 | 80 | Warn |  |
+| /learn/w1 | 80 | Warn |  |
+| /learn/w2 | 80 | Warn |  |
+| /learn/w3 | 80 | Warn |  |
+| /learn/w4 | 80 | Warn |  |
+| /learn/w5 | 80 | Warn |  |
+| /learn/w6 | 80 | Warn |  |
+| /learn/w7 | 80 | Warn |  |
+| /learn/w8 | 80 | Warn |  |
+| /learn/p0 | 90 | Pass |  |
+| /learn/p1 | 90 | Pass |  |
+| /learn/p2 | 90 | Pass |  |
+| /learn/p3 | 90 | Pass |  |
+| /learn/p4 | 90 | Pass |  |
+| /learn/p5 | 90 | Pass |  |
+| /learn/p6 | 90 | Pass |  |
+| /learn/p7 | 90 | Pass |  |
+| /learn/p8 | 90 | Pass |  |
+| /learn/p9 | 90 | Pass |  |
+| /learn/p10 | 90 | Pass |  |
+| /learn/p11 | 90 | Pass |  |
+| /learn/p12 | 90 | Pass |  |
+| /learn/p13 | 90 | Pass |  |
+| /learn/p14 | 90 | Pass |  |
+| /learn/p15 | 90 | Pass |  |
+| /learn/p16 | 90 | Pass |  |
+| /learn/p17 | 90 | Pass |  |
+
+</details>"
+`;
+
+exports[`markdown > prompts and logs 1`] = `
+"### Prompts (3 of 4 engines)
+
+| Prompt | ChatGPT | Claude | Perplexity | Gemini | Named |
+|---|---|---|---|---|---|
+| roth ira for beginners | Cited /learn/roth-ira | Cited /learn/roth-ira | Not cited: nerdwallet.com | Not checked | 0 of 3 |
+| best app to learn investing | Not cited: nerdwallet.com | Not cited: investopedia.com | Not cited: nerdwallet.com | Not checked | 0 of 3 |
+| etf vs index fund | Cited /learn/roth-ira | Not cited: nerdwallet.com | Cited /learn/roth-ira | Not checked | 0 of 3 |
+
+**Considered, not cited:** not collected for ChatGPT, Claude, Perplexity.
+
+Gemini not checked: rate limit (HTTP 429) after 2 tries. API answers can differ from what a person sees in ChatGPT and the other apps. Estimated engine cost: $0.03 on your keys."
+`;
+
+exports[`markdown > prompts and logs 2`] = `
+"### Prompts (4 of 4 engines)
+
+| Prompt | ChatGPT | Claude | Perplexity | Gemini | Named |
+|---|---|---|---|---|---|
+| roth ira for beginners | Cited /learn/roth-ira | Named, not linked | Not cited: nerdwallet.com | Not cited: investopedia.com | 2 of 4 |
+| best app to learn investing | Not cited: nerdwallet.com | Not cited: investopedia.com | Not cited: investopedia.com | Not cited: nerdwallet.com | 0 of 4 |
+| etf vs index fund | Cited /learn/roth-ira | Named, not linked | Not checked | Not cited: investopedia.com | 1 of 3 |
+
+**Considered, not cited:**
+
+- \`/learn/roth-ira\`: ChatGPT, Claude
+- a bywell.org page: Gemini (2)
+- \`/learn/ira-basics\`: ChatGPT
+
+Not collected for Perplexity.
+
+Perplexity not checked: rate limit (HTTP 429) after 2 tries. API answers can differ from what a person sees in ChatGPT and the other apps. Estimated engine cost: $0.06 on your keys. Perception (Claude Haiku 5.5 on ANTHROPIC_API_KEY, 4 answers about you): 3 positive · 1 neutral · 0 negative. Cost: <$0.01."
+`;
+
+exports[`markdown > prompts and logs 3`] = `
+"### AI crawler visits
+
+12,034 lines, nginx or Apache combined, 12 skipped.
+
+| Bot | Vendor | Hits | Pages | IP check |
+|---|---|---|---|---|
+| GPTBot | OpenAI | 412 | 38 | Verified |
+| ClaudeBot | Anthropic | 97 | 12 | Unverified 3 of 97 |
+| bytespider |  | 40 | 9 | No IP list |
+
+Verified = the request came from the vendor's published IP ranges (snapshot of 2026-11-18). Logs · 7 days · to Nov 15."
+`;
+
+exports[`terminal text (board CCli) > logs 1`] = `
+"citelog 0.1.0 · part of Morningdesk
+Read access.log: 12,034 lines, nginx or Apache combined (12 skipped)
+
+  Bot                 Vendor         Hits  Pages  IP check
+  GPTBot              OpenAI          412     38  verified
+  ClaudeBot           Anthropic        97     12  UNVERIFIED 3 of 97
+  bytespider                           40      9  no IP list
+
+  Most read pages                 Bot                  Hits
+  /learn/roth-ira                 GPTBot                 40
+  /pricing                        ClaudeBot              12
+
+  Verified = the request came from the vendor’s published IP ranges
+  (snapshot of 2026-11-18; no lookups at run time).
+  Logs · 7 days · to Nov 15
+"
+`;
+
+exports[`terminal text (board CCli) > measures: cited / named / -, considered not cited, perception (AI search measures) 1`] = `
+"Asking 3 prompts on 4 engines…
+
+  Prompt                  ChatGPT  Claude  Perplx  Gemini
+  roth ira for beginners  cited    named   -       -
+  best app to learn inv…  -        -       -       -
+  etf vs index fund       cited    named   n/c     -
+
+  cited = linked your site · named = says your name, no link · - = neither
+
+  Instead of you: nerdwallet.com (4), investopedia.com (4)
+
+  Considered, not cited:
+    /learn/roth-ira         ChatGPT, Claude
+    a bywell.org page       Gemini (2)
+    /learn/ira-basics       ChatGPT
+    Not collected for Perplexity.
+
+  Perception (Claude Haiku 5.5 on ANTHROPIC_API_KEY, 4 answers about you): 3 positive · 1 neutral · 0 negative. Cost: <$0.01
+
+NOT CHECKED Perplexity: rate limit (HTTP 429) after 2 tries.
+  The other 3 engines finished. n/c = not checked.
+
+API answers can differ from what a person sees in
+ChatGPT and the other apps. Est. cost: $0.06
+Citelog · checked Nov 18
+"
+`;
+
+exports[`terminal text (board CCli) > plan: prompts by topic and stage, estimate per engine, judge line (--plan) 1`] = `
+"Read citelog.config.json: 3 prompts for bywell.org
+Plan for bywell.org: 3 prompts on 3 engines. Nothing was sent.
+
+  Retirement · 2 prompts: 1 discovery, 1 evaluation
+    roth ira for beginners              discovery (auto)
+    roth ira vs 401k                    evaluation (auto)
+  No topic · 1 prompt: 1 decision
+    bywell price                        decision
+
+  Engine         Answers  Estimate
+  ChatGPT              3     $0.11
+  Claude               3     $0.03
+  Perplexity           3    <$0.01
+  Perception           5    <$0.01  Claude Haiku 5.5 on ANTHROPIC_API_KEY, about half the answers (those that name or cite you)
+  Total                      $0.16  first run, rough estimate from list prices
+
+Not asked (no key): Gemini (GOOGLE_API_KEY or GEMINI_API_KEY).
+
+Only the prompt text goes to engines; topic and stage stay here.
+Run it: npx citelog prompts --perception
+"
+`;
+
+exports[`terminal text (board CCli) > plan: prompts by topic and stage, estimate per engine, judge line (--plan) 2`] = `
+"### Prompt plan (3 prompts, 3 engines)
+
+Nothing was sent.
+
+| Prompt | Topic | Stage |
+|---|---|---|
+| roth ira for beginners | Retirement | discovery (auto) |
+| roth ira vs 401k | Retirement | evaluation (auto) |
+| bywell price | No topic | decision |
+
+| Engine | Answers | Estimate |
+|---|---|---|
+| ChatGPT | 3 | $0.11 |
+| Claude | 3 | $0.03 |
+| Perplexity | 3 | <$0.01 |
+| Perception | 5 | <$0.01: Claude Haiku 5.5 on ANTHROPIC\\_API\\_KEY, about half the answers \\(those that name or cite you\\) |
+| Total |  | $0.16 (first run, rough estimate from list prices) |
+
+Not asked (no key): Gemini (\`GOOGLE_API_KEY or GEMINI_API_KEY\`)."
+`;
+
+exports[`terminal text (board CCli) > state 1: pass 1`] = `
+"citelog 0.1.0 · part of Morningdesk
+Read the site's sitemap: 12 pages
+
+  Page                          Score  Result
+  /                                96  PASS
+  /pricing                         93  PASS
+  /blog/group-chats-with-ai        91  PASS
+  … 9 more pages, all 90 or above
+
+  Site score 94  Ready (90–100)
+  12 pages · 0 with failures · 0 with warnings
+  llms.txt  found (info, not scored)
+  Citelog · checked Nov 18
+
+Done in 6.1 s. Track prompts too: npx citelog init
+"
+`;
+
+exports[`terminal text (board CCli) > state 2: warnings only, build folder 1`] = `
+"citelog 0.1.0 · part of Morningdesk
+Read ./out: 41 HTML files
+
+  Page                          Score  Result
+  /learn/compound-interest         86  WARN  1
+  /learn/etf-vs-index-fund         88  WARN  1
+  /learn/w0                        89  WARN  1
+  … 38 more (3 warn, 35 pass)
+
+  WARN /learn/compound-interest
+       Question-style subheadings
+       Question-style subheadings needs work.
+       Fix: make one subheading a question.
+
+  Site score 89  Needs work (50–89)
+  41 pages · 0 with failures · 6 with warnings  (--verbose lists all)
+  llms.txt  found (info, not scored)
+  Citelog · checked Nov 18
+"
+`;
+
+exports[`terminal text (board CCli) > state 3: failures with fixes, below --fail-under 1`] = `
+"citelog 0.1.0 · part of Morningdesk
+Read the site's sitemap: 41 pages
+
+  Page                          Score  Result
+  /pricing                         42  FAIL  4
+  /learn/what-is-diversification   58  FAIL  3
+  /learn/roth-ira                  64  FAIL  3
+  … 38 more (11 fail, 9 warn, 18 pass)
+
+  FAIL robots.txt blocks ClaudeBot
+       "User-agent: ClaudeBot / Disallow: /" (line 14)
+       Fix: remove the rule, unless you mean to block it.
+  FAIL /pricing: content present without JavaScript
+       Main text appears only after JS runs. AI crawlers
+       mostly read the HTML as sent.
+       Fix: render the plan table on the server.
+
+  Site score 72  below --fail-under 80
+  Top fix: a short answer under the title (9 pages)
+  Failed checks: short answer (9), question headings (5), AI crawlers blocked
+                 (3), 3 more
+  llms.txt  found (info, not scored)
+  Citelog · checked Nov 18
+"
+`;
+
+exports[`terminal text (board CCli) > state 4: prompts skipped, no keys 1`] = `
+"Read citelog.config.json: 5 prompts for lovestruck.app
+
+SKIPPED No engine keys found, so no prompts were asked.
+Set one or more, then run again:
+
+  ChatGPT      OPENAI_API_KEY
+  Claude       ANTHROPIC_API_KEY
+  Perplexity   PERPLEXITY_API_KEY
+  Gemini       GOOGLE_API_KEY or GEMINI_API_KEY
+
+Keys stay on your machine. Citelog calls only the
+engines whose keys are set, and sends no telemetry.
+"
+`;
+
+exports[`terminal text (board CCli) > state 5: one engine failed 1`] = `
+"Asking 3 prompts on 4 engines…
+
+  Prompt                  ChatGPT  Claude  Perplx  Gemini
+  roth ira for beginners  cited    cited   -       n/c
+  best app to learn inv…  -        -       -       n/c
+  etf vs index fund       cited    -       cited   n/c
+
+  cited = linked your site · named = says your name, no link · - = neither
+
+  Instead of you: nerdwallet.com (4), investopedia.com (3)
+
+  Considered, not cited: not collected for ChatGPT, Claude, Perplexity.
+
+NOT CHECKED Gemini: rate limit (HTTP 429) after 2 tries.
+  The other 3 engines finished. n/c = not checked.
+
+API answers can differ from what a person sees in
+ChatGPT and the other apps. Est. cost: $0.03
+Citelog · checked Nov 18
+"
+`;
+
+exports[`terminal text (board CCli) > state 6: couldn't run 1`] = `
+"citelog 0.1.0 · part of Morningdesk
+
+COULDN'T RUN https://lovestruck.app/sitemap.xml
+  HTTP 503 Service Unavailable, 2 tries, 10 s each.
+  Nothing was checked, so there's no score.
+
+  Try:
+  · open the URL in a browser to see if the site is up
+  · or check a build folder: npx citelog check ./dist
+"
+`;

@@ -1,0 +1,22 @@
+{
+  "_fixture": "synthetic, doc-shaped (REVIEW-citelog-apis.md 1b, https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool)",
+  "id": "msg_fixture_01",
+  "type": "message",
+  "role": "assistant",
+  "model": "claude-haiku-5-5",
+  "content": [
+    { "type": "server_tool_use", "id": "srvtoolu_fixture_01", "name": "web_search", "input": { "query": "open source AI search readiness checker" } },
+    { "type": "web_search_tool_result", "tool_use_id": "srvtoolu_fixture_01",
+      "content": [
+        { "type": "web_search_result", "url": "https://example.com/blog/ai-readiness", "title": "AI readiness checks", "encrypted_content": "EqgfCioIARgB...", "page_age": "November 2, 2026" },
+        { "type": "web_search_result", "url": "https://competitor.io/geo-audit", "title": "GeoAudit", "encrypted_content": "EqgfCioIARgC...", "page_age": null }
+      ] },
+    { "type": "text", "text": "Based on the search results, " },
+    { "type": "text", "text": "GeoAudit is a paid tool for checking AI search readiness.",
+      "citations": [
+        { "type": "web_search_result_location", "url": "https://competitor.io/geo-audit", "title": "GeoAudit", "encrypted_index": "Eo8BCioIAhgB...", "cited_text": "GeoAudit audits your site for AI answer engines..." }
+      ] }
+  ],
+  "stop_reason": "end_turn",
+  "usage": { "input_tokens": 5120, "output_tokens": 210, "server_tool_use": { "web_search_requests": 1 } }
+}

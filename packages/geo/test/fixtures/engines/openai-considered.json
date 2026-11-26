@@ -1,0 +1,41 @@
+{
+  "_fixture": "synthetic, doc-shaped (ai-search-measures PLAN docs table, https://developers.openai.com/api/docs/guides/tools-web-search): action.sources lists an on-site page the answer doesn't cite; one cited URL is not in sources",
+  "id": "resp_fixture_02",
+  "object": "response",
+  "model": "gpt-6.2-astra",
+  "status": "completed",
+  "output": [
+    {
+      "type": "web_search_call",
+      "id": "ws_fixture_02",
+      "status": "completed",
+      "action": {
+        "type": "search",
+        "query": "roth ira app for beginners",
+        "sources": [
+          { "type": "url", "url": "https://example.com/learn/roth-ira" },
+          { "type": "url", "url": "https://www.example.com/pricing" },
+          { "type": "url", "url": "https://www.nerdwallet.com/roth-ira" },
+          { "type": "api", "name": "oai-finance" }
+        ]
+      }
+    },
+    {
+      "id": "msg_fixture_02",
+      "type": "message",
+      "status": "completed",
+      "role": "assistant",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "Example offers a free plan for beginners ([example.com](https://www.example.com/pricing?utm_source=openai)). Investopedia explains Roth basics ([investopedia.com](https://investopedia.com/roth?utm_source=openai)).",
+          "annotations": [
+            { "type": "url_citation", "start_index": 41, "end_index": 106, "url": "https://www.example.com/pricing?utm_source=openai", "title": "Pricing" },
+            { "type": "url_citation", "start_index": 143, "end_index": 210, "url": "https://investopedia.com/roth?utm_source=openai", "title": "Roth IRA" }
+          ]
+        }
+      ]
+    }
+  ],
+  "usage": { "input_tokens": 2600, "input_tokens_details": { "cached_tokens": 0 }, "output_tokens": 250, "total_tokens": 2850 }
+}

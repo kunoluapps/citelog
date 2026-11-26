@@ -1,0 +1,35 @@
+name: Bug
+description: Citelog crashed, printed something wrong, or the Action misbehaved.
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `npx citelog --version`, or the Action ref (e.g. kunoluapps/citelog@v0).
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: What you ran
+      description: The command or workflow step. Remove API keys and anything private.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: got
+    attributes:
+      label: What happened
+      description: The output (`--no-color` helps), or the Action log.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+  - type: input
+    id: env
+    attributes:
+      label: Node version and OS
+      placeholder: Node 22.12, macOS 15

@@ -1,0 +1,4 @@
+[
+{"id":"a","deploymentId":"dpl_1","source":"static","host":"my-app.vercel.app","timestamp":1573817250283,"proxy":{"timestamp":1573817250172,"method":"GET","host":"example.com","path":"/a","userAgent":["Mozilla/5.0 (compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)"],"statusCode":200,"clientIp":"107.20.236.150"}},
+{"id":"b","deploymentId":"dpl_1","source":"static","host":"my-app.vercel.app","timestamp":1573817250283,"proxy":{"timestamp":1573817250999,"method":"GET","host":"example.com","path":"/b","userAgent":["Mozilla/5.0 (compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)"],"statusCode":404,"clientIp":"107.20.236.150"}}
+]

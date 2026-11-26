@@ -1,0 +1,14 @@
+{
+  "_fixture": "synthetic, doc-shaped: paused turn, continued by resending the assistant content",
+  "id": "msg_fixture_03",
+  "type": "message",
+  "role": "assistant",
+  "model": "claude-haiku-5-5",
+  "content": [
+    { "type": "server_tool_use", "id": "srvtoolu_fixture_03", "name": "web_search", "input": { "query": "ai readiness checker" } },
+    { "type": "web_search_tool_result", "tool_use_id": "srvtoolu_fixture_03",
+      "content": [ { "type": "web_search_result", "url": "https://example.com/", "title": "Example", "encrypted_content": "Eqg...", "page_age": null } ] }
+  ],
+  "stop_reason": "pause_turn",
+  "usage": { "input_tokens": 1000, "output_tokens": 10, "server_tool_use": { "web_search_requests": 1 } }
+}

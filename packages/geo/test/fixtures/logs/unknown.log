@@ -1,0 +1,3 @@
+2026-11-17 06:25:24 INFO server started on port 8080
+2026-11-17 06:25:25 WARN cache miss for /pricing
+{"msg":"hello","level":30}
